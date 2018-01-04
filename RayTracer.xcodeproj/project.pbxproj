@@ -13,7 +13,6 @@
 		F9F016681FFC6E1C00D5DD3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9F016671FFC6E1C00D5DD3D /* Assets.xcassets */; };
 		F9F0166B1FFC6E1C00D5DD3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9F016691FFC6E1C00D5DD3D /* Main.storyboard */; };
 		F9F016771FFC6E1C00D5DD3D /* RayTracerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F016761FFC6E1C00D5DD3D /* RayTracerTests.swift */; };
-		F9F016821FFC6E3600D5DD3D /* vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F016811FFC6E3600D5DD3D /* vec3.swift */; };
 		F9F016841FFC6EEA00D5DD3D /* ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F016831FFC6EEA00D5DD3D /* ray.swift */; };
 		F9F016861FFC6F2100D5DD3D /* pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F016851FFC6F2100D5DD3D /* pixel.swift */; };
 /* End PBXBuildFile section */
@@ -40,7 +39,6 @@
 		F9F016721FFC6E1C00D5DD3D /* RayTracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RayTracerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F016761FFC6E1C00D5DD3D /* RayTracerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayTracerTests.swift; sourceTree = "<group>"; };
 		F9F016781FFC6E1C00D5DD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9F016811FFC6E3600D5DD3D /* vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vec3.swift; sourceTree = "<group>"; };
 		F9F016831FFC6EEA00D5DD3D /* ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ray.swift; sourceTree = "<group>"; };
 		F9F016851FFC6F2100D5DD3D /* pixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pixel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,7 +64,6 @@
 		F9F016571FFC6E1C00D5DD3D = {
 			isa = PBXGroup;
 			children = (
-				F9F016811FFC6E3600D5DD3D /* vec3.swift */,
 				F9F016831FFC6EEA00D5DD3D /* ray.swift */,
 				F9F016851FFC6F2100D5DD3D /* pixel.swift */,
 				F9F016621FFC6E1C00D5DD3D /* RayTracer */,
@@ -213,7 +210,6 @@
 				F9F016661FFC6E1C00D5DD3D /* ViewController.swift in Sources */,
 				F959D2001FFD8353008F14DF /* CIView.swift in Sources */,
 				F9F016861FFC6F2100D5DD3D /* pixel.swift in Sources */,
-				F9F016821FFC6E3600D5DD3D /* vec3.swift in Sources */,
 				F9F016641FFC6E1C00D5DD3D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
