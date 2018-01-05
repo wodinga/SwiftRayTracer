@@ -14,8 +14,10 @@ class CIView: NSView {
     let image:CIImage
    
     required init?(coder: NSCoder) {
-        let pixelSet = makePixelSet(width: width, height: height)
-        image = imageFromPixels(pixels: pixelSet)
+        let t0 = CFAbsoluteTimeGetCurrent()
+        image = imageFromPixels(width, height)
+        let t1 = CFAbsoluteTimeGetCurrent()
+        print(t1-t0)
         super.init(coder: coder)
     }
     

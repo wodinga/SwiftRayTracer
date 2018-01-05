@@ -21,7 +21,7 @@ public struct Pixel{
 
 }
 
-public func makePixelSet(width: Int, height: Int) -> ([Pixel], Int, Int) {
+public func imageFromPixels(_ width: Int, _ height: Int) -> CIImage {
     var pixel  = Pixel(red: 0, green: 0, blue: 0)
     var pixels = [Pixel](repeating: pixel, count: width * height)
     let lower_left_corner = double3(x: -2.0, y: 1.0, z: -1.0)
@@ -33,25 +33,21 @@ public func makePixelSet(width: Int, height: Int) -> ([Pixel], Int, Int) {
             let u = Double(i) / Double(width)
             let v = Double(j) / Double(height)
             let r  = ray(origin: origin, direction: lower_left_corner + u * horizontal + v * vertical)
-        
+
             let col = color(r: r)
             pixel = Pixel(red: UInt8(col.x * 255), green: UInt8(col.y * 255), blue: UInt8(col.z * 255))
             pixels[i + j * width] = pixel
         }
     }
-    return(pixels, width, height)
-}
-
-public func imageFromPixels(pixels: ([Pixel], width: Int, height: Int)) -> CIImage {
     let bitsPerComponent = 8
     let bitsPerPixel = 32
     let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
     let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
 
-    let providerRef = CGDataProvider.init(data:NSData(bytes: pixels.0, length: pixels.0.count * MemoryLayout<Pixel>.size))
+    let providerRef = CGDataProvider.init(data:NSData(bytes: pixels, length: pixels.count * MemoryLayout<Pixel>.size))
 
-    let image = CGImage.init(width: pixels.1, height: pixels.2, bitsPerComponent: bitsPerComponent,
-                             bitsPerPixel: bitsPerPixel, bytesPerRow: pixels.1 * MemoryLayout<Pixel>.size,
+    let image = CGImage.init(width: width , height: height, bitsPerComponent: bitsPerComponent,
+                             bitsPerPixel: bitsPerPixel, bytesPerRow: width * MemoryLayout<Pixel>.size,
                              space: rgbColorSpace, bitmapInfo: bitmapInfo, provider: providerRef!,
                              decode: nil, shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
     return CIImage.init(cgImage: image!)
