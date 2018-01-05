@@ -71,3 +71,12 @@ public class hitable_list: hitable {
         return hit_anything
     }
 }
+
+//This is to create matte materials
+public func random_in_unit_sphere() -> double3 {
+    var p = double3()
+    repeat {
+        p = 2.0 * double3(x: Double(drand48()), y: Double(drand48()), z: Double(drand48())) - double3(x: 1, y:1, z: 1)
+    } while dot(p,p) >= 1.0
+    return p
+}

@@ -9,7 +9,7 @@
 import Cocoa
 
 class CIView: NSView {
-    let rect = NSRect(x: 0, y: 0, width: 800, height: 500)
+    let rect = NSRect(x: 0, y: 0, width: 800, height: 400)
     let image:CIImage
    
     required init?(coder: NSCoder) {

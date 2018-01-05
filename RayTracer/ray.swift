@@ -34,8 +34,9 @@ public struct ray {
 
 public func color(r: ray, world: hitable) -> double3 {
     var rec = hit_record()
-    if world.hit(r: r, 0.0, Double.infinity, &rec) {
-        return 0.5 * double3(rec.normal.x + 1, rec.normal.y + 1, rec.normal.z + 1)
+    if world.hit(r: r, 0.01, Double.infinity, &rec) {
+        let target = rec.p + rec.normal + random_in_unit_sphere()
+        return 0.8 * color(r: ray(origin: rec.p, direction: target - rec.p), world: world)
     }
     else {
             let unit_direction = normalize(r.direction)
