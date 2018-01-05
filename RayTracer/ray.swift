@@ -43,3 +43,21 @@ public func color(r: ray, world: hitable) -> double3 {
             return (1.0 - t) * double3(x: 1, y: 1, z: 1) + t * double3(x: 0.5, y: 0.7, z: 1.0)
     }
 }
+
+public struct camera {
+    let lower_left_corner: double3
+    let horizontal: double3
+    let vertical: double3
+    let origin: double3
+
+    public init() {
+        lower_left_corner = double3(x: -2.0, y: 1.0, z: -1.0)
+        horizontal = double3(x:4.0, y: 0, z:0)
+        vertical = double3(x: 0, y: -2.0, z:0)
+        origin = double3()
+    }
+
+    public func get_ray(_ u: Double, _ v: Double) -> ray {
+        return ray(origin: origin, direction: lower_left_corner + u * horizontal + v * vertical - origin)
+    }
+}
