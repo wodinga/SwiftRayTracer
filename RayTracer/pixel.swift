@@ -28,13 +28,18 @@ public func imageFromPixels(_ width: Int, _ height: Int) -> CIImage {
     let horizontal = double3(x:4.0, y: 0.0, z:0.0)
     let vertical = double3(x: 0.0, y: -2.0, z: 0.0)
     let origin = double3()
+    let world = hitable_list()
+    var object = sphere(c: double3(x: 0, y: -100.5, z: -1), r: 100)
+    world.add(object)
+    object = sphere(c: double3(x: 0, y: 0, z: -1), r: 0.5)
+    world.add(object)
     for i in 0..<width {
         for j in 0..<height {
             let u = Double(i) / Double(width)
             let v = Double(j) / Double(height)
             let r  = ray(origin: origin, direction: lower_left_corner + u * horizontal + v * vertical)
 
-            let col = color(r: r)
+            let col = color(r: r, world: world)
             pixel = Pixel(red: UInt8(col.x * 255), green: UInt8(col.y * 255), blue: UInt8(col.z * 255))
             pixels[i + j * width] = pixel
         }

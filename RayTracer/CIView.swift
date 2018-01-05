@@ -9,16 +9,18 @@
 import Cocoa
 
 class CIView: NSView {
-    let width = 800
-    let height = 400
+    let rect = NSRect(x: 0, y: 0, width: 800, height: 500)
     let image:CIImage
    
     required init?(coder: NSCoder) {
+        //Time how long it takes to perform this action
         let t0 = CFAbsoluteTimeGetCurrent()
-        image = imageFromPixels(width, height)
+        image = imageFromPixels(Int(rect.width), Int(rect.height))
         let t1 = CFAbsoluteTimeGetCurrent()
         print(t1-t0)
         super.init(coder: coder)
+        //Set view to this nice little rect so we don't have to manually resize
+        self.frame = rect
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -27,7 +29,7 @@ class CIView: NSView {
         let context = NSGraphicsContext.current?.cgContext
 
         if let cgImg = image.cgImage {
-            context?.draw(cgImg, in: self.frame)
+            context?.draw(cgImg, in: rect)
         }
     }
     

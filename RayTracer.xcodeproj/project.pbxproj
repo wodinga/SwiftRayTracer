@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9309EE71FFF33AE009C014D /* objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9309EE61FFF33AE009C014D /* objects.swift */; };
 		F959D2001FFD8353008F14DF /* CIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959D1FF1FFD8353008F14DF /* CIView.swift */; };
 		F9F016641FFC6E1C00D5DD3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F016631FFC6E1C00D5DD3D /* AppDelegate.swift */; };
 		F9F016661FFC6E1C00D5DD3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F016651FFC6E1C00D5DD3D /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F9309EE61FFF33AE009C014D /* objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objects.swift; sourceTree = "<group>"; };
 		F959D1FF1FFD8353008F14DF /* CIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIView.swift; sourceTree = "<group>"; };
 		F9F016601FFC6E1C00D5DD3D /* RayTracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayTracer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F016631FFC6E1C00D5DD3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,8 +66,6 @@
 		F9F016571FFC6E1C00D5DD3D = {
 			isa = PBXGroup;
 			children = (
-				F9F016831FFC6EEA00D5DD3D /* ray.swift */,
-				F9F016851FFC6F2100D5DD3D /* pixel.swift */,
 				F9F016621FFC6E1C00D5DD3D /* RayTracer */,
 				F9F016751FFC6E1C00D5DD3D /* RayTracerTests */,
 				F9F016611FFC6E1C00D5DD3D /* Products */,
@@ -84,6 +84,8 @@
 		F9F016621FFC6E1C00D5DD3D /* RayTracer */ = {
 			isa = PBXGroup;
 			children = (
+				F9F016831FFC6EEA00D5DD3D /* ray.swift */,
+				F9F016851FFC6F2100D5DD3D /* pixel.swift */,
 				F9F016631FFC6E1C00D5DD3D /* AppDelegate.swift */,
 				F9F016651FFC6E1C00D5DD3D /* ViewController.swift */,
 				F9F016671FFC6E1C00D5DD3D /* Assets.xcassets */,
@@ -91,6 +93,7 @@
 				F959D1FF1FFD8353008F14DF /* CIView.swift */,
 				F9F0166C1FFC6E1C00D5DD3D /* Info.plist */,
 				F9F0166D1FFC6E1C00D5DD3D /* RayTracer.entitlements */,
+				F9309EE61FFF33AE009C014D /* objects.swift */,
 			);
 			path = RayTracer;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9309EE71FFF33AE009C014D /* objects.swift in Sources */,
 				F9F016841FFC6EEA00D5DD3D /* ray.swift in Sources */,
 				F9F016661FFC6E1C00D5DD3D /* ViewController.swift in Sources */,
 				F959D2001FFD8353008F14DF /* CIView.swift in Sources */,
