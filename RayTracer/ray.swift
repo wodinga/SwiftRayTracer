@@ -32,16 +32,23 @@ public struct ray {
     }
 }
 
-public func color(r: ray, world: hitable) -> double3 {
+public func color(r: ray, world: hitable, _ depth: Int) -> double3 {
     var rec = hit_record()
-    if world.hit(r: r, 0.01, Double.infinity, &rec) {
-        let target = rec.p + rec.normal + random_in_unit_sphere()
-        return 0.8 * color(r: ray(origin: rec.p, direction: target - rec.p), world: world)
+    if world.hit(r: r, 0.001, Double.infinity, &rec) {
+        var scattered = r
+        var attenuation = double3()
+        //We either attentuate the ray and scatter it or we absorb it
+        if depth < 50 && rec.mat_ptr.scatter(ray_in: r, rec, &attenuation, &scattered)
+        {
+            return attenuation * color(r: scattered, world: world, depth + 1)
+        } else {
+            return double3(x: 0, y: 0, z: 0)
+        }
     }
     else {
-            let unit_direction = normalize(r.direction)
-            let t = 0.5 * (unit_direction.y + 1)
-            return (1.0 - t) * double3(x: 1, y: 1, z: 1) + t * double3(x: 0.5, y: 0.7, z: 1.0)
+        let unit_direction = normalize(r.direction)
+        let t = 0.5 * (unit_direction.y + 1)
+        return (1.0 - t) * double3(x: 1, y: 1, z: 1) + t * double3(x: 0.5, y: 0.7, z: 1.0)
     }
 }
 
