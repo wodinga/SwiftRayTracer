@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  RayTracer
 //
-//  Created by David Garcia on 1/2/18.
-//  Copyright © 2018 Ayy Lmao LLC. All rights reserved.
+//  Created by Rafael Garcia on 1/2/18.
+//  RayTracer implemented in Swift. This is based on this tutorial http://bit.ly/2ApdZ8P
 //
 
 import Cocoa

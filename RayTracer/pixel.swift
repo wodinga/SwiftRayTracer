@@ -2,8 +2,8 @@
 //  pixel.swift
 //  RayTracer
 //
-//  Created by David Garcia on 1/2/18.
-//  Copyright © 2018 Ayy Lmao LLC. All rights reserved.
+//  Created by Rafael Garcia on 1/2/18.
+//  RayTracer implemented in Swift. This is based on this tutorial http://bit.ly/2ApdZ8P
 //
 
 import Foundation
@@ -25,13 +25,13 @@ public func imageFromPixels(_ width: Int, _ height: Int) -> CIImage {
     var pixel  = Pixel(red: 0, green: 0, blue: 0)
     var pixels = [Pixel](repeating: pixel, count: width * height)
     let world = hitable_list()
-    var object = sphere(c: double3(x: 0, y: -100.5, z: -1), r: 100, m: lambertian(a: double3(x:0, y: 0.7, z:0.3)))
+    var object = sphere(c: double3(x: 0, y: -100.5, z: -1), r: 100, m: lambertian(a: double3(x:0, y: 0.7, z:0.2)))
     world.add(object)
-    object = sphere(c: double3(x: 0, y: 0, z: -3), r: 0.5,m: metal(a: double3(x: 0.8, y: 0.8, z: 0.8), f: 0.1))
+    object = sphere(c: double3(x: 0, y: 0, z: -3), r: 0.5,m: metal(a: double3(x: 0.8, y: 0.8, z: 0.8), f: 0.3))
     world.add(object)
     object = sphere(c: double3(x: 1, y: 0, z: -1.1), r: 0.5,  m: lambertian(a: double3(x:0.3, y: 0, z:0)))
     world.add(object)
-    object = sphere(c: double3(x: -1, y: 0, z: -1.1), r: 0.5, m: metal(a: double3(x: 0.8, y: 0.8, z: 0.8), f: 0.7))
+    object = sphere(c: double3(x: -1, y: 0, z: -1.1), r: 0.5, m: metal(a: double3(x: 0.8, y: 0.8, z: 0.8), f: 0.9))
     world.add(object)
     let cam = camera()
     for i in 0..<width {

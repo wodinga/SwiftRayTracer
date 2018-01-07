@@ -2,7 +2,7 @@
 //  ray.swift
 //  RayTracer
 //
-//  Created by David Garcia on 1/2/18.
+//  Created by Rafael Garcia on 1/2/18.
 //  Copyright © 2018 Ayy Lmao LLC. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  material.swift
 //  RayTracer
 //
-//  Created by David Garcia on 1/5/18.
+//  Created by Rafael Garcia on 1/5/18.
 //  Copyright © 2018 Ayy Lmao LLC. All rights reserved.
 //
 
@@ -48,7 +48,7 @@ public class metal: material {
 
   public func scatter(ray_in: ray, _ rec: hit_record, _ attenuation: inout double3, _ scattered: inout ray) -> Bool {
         let reflected = reflect(normalize(ray_in.direction), n: rec.normal)
-        scattered = ray(origin: rec.p, direction: reflected)
+        scattered = ray(origin: rec.p, direction: reflected + fuzz * random_in_unit_sphere())
         attenuation = albedo
         return dot(scattered.direction, rec.normal) > 0
     }
